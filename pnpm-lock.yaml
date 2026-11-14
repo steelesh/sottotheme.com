@@ -180,8 +180,8 @@ importers:
         specifier: ^4.6.0
         version: 4.6.0
       sotto:
-        specifier: github:steelesh/sotto#v0.3.0
-        version: https://codeload.github.com/steelesh/sotto/tar.gz/8c85d85a57aad9642b533288e0e18965eb536048
+        specifier: github:steelesh/sotto#v0.3.2
+        version: https://codeload.github.com/steelesh/sotto/tar.gz/fe5b66f0c57ac6043871cff3cd1019d2ac726d7e
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -1410,9 +1410,9 @@ packages:
     resolution: {integrity: sha512-j7WyPdf0CJoutMzMoPLF/bVXHtKZIT9Rb4eGeEbWw8X2t5oirjPgpL+OpaENZrILYaXqYwnVH+qgUwVbl+pUJQ==}
     engines: {node: '>= 18'}
 
-  sotto@https://codeload.github.com/steelesh/sotto/tar.gz/8c85d85a57aad9642b533288e0e18965eb536048:
-    resolution: {gitHosted: true, integrity: sha512-Ior+epN15/BGloCUG2+eTECQnDuHGiU3+HitVoR5XFL9Hk2BtefRqj4bnTqI9oU7VL9JNz95ZFeK6NeejAVLxQ==, tarball: https://codeload.github.com/steelesh/sotto/tar.gz/8c85d85a57aad9642b533288e0e18965eb536048}
-    version: 0.3.0
+  sotto@https://codeload.github.com/steelesh/sotto/tar.gz/fe5b66f0c57ac6043871cff3cd1019d2ac726d7e:
+    resolution: {gitHosted: true, integrity: sha512-U6EAtgilVal060YqC/MN8eij9GII0vZ3KD/DKEBHNkAq2jzIGQcv0d8WeZlwKmjrURW56TJs67Xw/M7NUvA6+g==, tarball: https://codeload.github.com/steelesh/sotto/tar.gz/fe5b66f0c57ac6043871cff3cd1019d2ac726d7e}
+    version: 0.3.2
     engines: {node: '>=24.12'}
 
   source-map-js@1.2.2:
@@ -3028,7 +3028,7 @@ snapshots:
 
   smol-toml@1.9.1: {}
 
-  sotto@https://codeload.github.com/steelesh/sotto/tar.gz/8c85d85a57aad9642b533288e0e18965eb536048: {}
+  sotto@https://codeload.github.com/steelesh/sotto/tar.gz/fe5b66f0c57ac6043871cff3cd1019d2ac726d7e: {}
 
   source-map-js@1.2.2: {}
 

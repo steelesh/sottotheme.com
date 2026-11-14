@@ -22,7 +22,7 @@
     "@astrojs/check": "^0.9.12",
     "@astrojs/sitemap": "^3.7.4",
     "shiki": "^4.6.0",
-    "sotto": "github:steelesh/sotto#v0.3.0",
+    "sotto": "github:steelesh/sotto#v0.3.2",
     "typescript": "^6.0.3"
   },
   "dependencies": {
