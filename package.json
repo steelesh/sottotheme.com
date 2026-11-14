@@ -23,7 +23,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "shiki": "^4.6.0",
     "sotto": "github:steelesh/sotto#v0.3.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "astro": "^7.4.11"
