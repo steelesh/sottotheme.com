@@ -1,0 +1,71 @@
+---
+import type { Source } from "../data/files.ts";
+import { render } from "../lib/markdown.ts";
+import Tokens from "./Tokens.astro";
+
+interface Props {
+  file: Source;
+}
+
+const { file } = Astro.props;
+const topics = await render(file.code);
+---
+
+<section class="pane doc" id={file.id} aria-label={file.name}>
+  {
+    topics.map(({ title, blocks }) => (
+      <div class="topic">
+        <h2>{title}</h2>
+        {blocks.map((block) =>
+          block.kind === "code" ? (
+            <div class="snippet" data-lang={block.lang}>
+              {block.rows.map(({ tokens, copy }) => {
+                const Tag = copy ? "button" : "span";
+                return (
+                  <Tag class="row" type={copy ? "button" : undefined} data-copy={copy} aria-label={copy ? `Copy ${copy}` : undefined}>
+                    <span>
+                      <Tokens tokens={tokens} />
+                    </span>
+                    {copy && (
+                      <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+                        <g class="copy">
+                          <rect x="8" y="8" width="13" height="13" rx="2.5" />
+                          <path d="M16 4.5A2.5 2.5 0 0 0 13.5 2h-8A2.5 2.5 0 0 0 3 4.5v8A2.5 2.5 0 0 0 5.5 15" />
+                        </g>
+                        <path class="tick" d="m4.5 12.5 5 5 10-11" />
+                      </svg>
+                    )}
+                  </Tag>
+                );
+              })}
+            </div>
+          ) : block.kind === "path" ? (
+            <div class="snippet">
+              <span class="row path">
+                {block.steps.map((step, index) => (
+                  <Fragment>
+                    {index > 0 && (
+                      <Fragment>
+                        <span class="sr-only">, then </span>
+                        <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m9 5 7 7-7 7" />
+                        </svg>
+                      </Fragment>
+                    )}
+                    <span>{step}</span>
+                  </Fragment>
+                ))}
+              </span>
+            </div>
+          ) : (
+            <p>
+              {block.parts.map((part) =>
+                part.kind === "link" ? <a href={part.href}>{part.text}</a> : part.kind === "code" ? <code>{part.text}</code> : part.text,
+              )}
+            </p>
+          ),
+        )}
+      </div>
+    ))
+  }
+</section>

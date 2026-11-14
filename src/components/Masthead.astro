@@ -1,0 +1,29 @@
+---
+import Wordmark from "../assets/wordmark.svg";
+
+const bars = [
+  { role: "call", x: 12, y: 12, height: 120 },
+  { role: "said", x: 56, y: 30, height: 84 },
+  { role: "form", x: 100, y: 48, height: 48 },
+];
+---
+
+<header class="masthead">
+  <a class="lockup" href="/" data-astro-prefetch>
+    <svg class="mark" viewBox="0 0 144 144" aria-hidden="true">
+      <defs>
+        {
+          bars.map(({ role }) => (
+            <linearGradient id={`bar-${role}`} data-role={role} x1="0" y1="0" x2="0" y2="1">
+              <stop />
+              <stop offset="1" />
+            </linearGradient>
+          ))
+        }
+      </defs>
+      {bars.map(({ role, x, y, height }) => <rect class="stem" x={x} y={y} width="32" height={height} rx="16" fill={`url(#bar-${role})`} />)}
+    </svg>
+    <Wordmark class="wordmark" />
+  </a>
+  <a class="cta" href="/#install" data-astro-prefetch>Install</a>
+</header>

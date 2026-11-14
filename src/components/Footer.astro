@@ -1,0 +1,15 @@
+---
+import sotto from "sotto/package.json";
+import { site } from "../data/site.ts";
+---
+
+<footer class="footer">
+  <p>{site.name} {sotto.version} <a href={`${site.repo}/blob/main/LICENSE`}>{sotto.license} license</a></p>
+  <nav aria-label="Footer">
+    <ul>
+      <li><a href={site.repo}>GitHub</a></li>
+      <li><a href="/privacy/" data-astro-prefetch>Privacy</a></li>
+      <li><a href="/accessibility/" data-astro-prefetch>Accessibility</a></li>
+    </ul>
+  </nav>
+</footer>

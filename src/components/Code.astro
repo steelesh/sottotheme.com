@@ -1,0 +1,23 @@
+---
+import type { Source } from "../data/files.ts";
+import { site } from "../data/site.ts";
+import { highlight } from "../lib/highlight.ts";
+import Tokens from "./Tokens.astro";
+
+interface Props {
+  file: Source;
+}
+
+const { file } = Astro.props;
+const lines = await highlight(file);
+---
+
+<section class="pane" id={file.id} aria-label={file.name} tabindex="0">
+  {
+    lines.map((line) => (
+      <span class="line" data-n={line.number} data-current={line.current ? "" : undefined}>
+        <Tokens tokens={line.tokens} roles={site.swatches} />
+      </span>
+    ))
+  }
+</section>

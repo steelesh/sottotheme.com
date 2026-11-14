@@ -1,0 +1,38 @@
+[tools]
+node = "26.13.0"
+pnpm = "12.18.0"
+biome = "2.6.7"
+
+[env]
+_.path = ["node_modules/.bin"]
+
+[tasks.install]
+description = "install the pinned dependencies"
+run = "pnpm install --frozen-lockfile"
+
+[tasks.dev]
+description = "serve the site locally with live reload"
+depends = ["install"]
+run = "astro dev"
+
+[tasks.build]
+description = "type check, then build the static site into dist/"
+depends = ["install"]
+run = ["astro check", "astro build"]
+
+[tasks.preview]
+description = "serve the built site from dist/"
+run = "astro preview"
+
+[tasks.lint]
+description = "lint and check formatting"
+depends = ["install"]
+run = "biome check --error-on-warnings"
+
+[tasks.format]
+description = "format in place"
+run = "biome check --write"
+
+[tasks.ci]
+description = "run everything continuous integration runs"
+run = [{ task = "lint" }, { task = "build" }]

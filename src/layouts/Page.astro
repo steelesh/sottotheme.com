@@ -1,0 +1,22 @@
+---
+import Footer from "../components/Footer.astro";
+import Masthead from "../components/Masthead.astro";
+import { site } from "../data/site.ts";
+import Base from "./Base.astro";
+import "../styles/prose.css";
+
+type Meta = { title: string; description: string; index?: boolean };
+type Props = Meta | { frontmatter: Meta };
+
+const { title, description, index = true } = "frontmatter" in Astro.props ? Astro.props.frontmatter : Astro.props;
+---
+
+<Base title={`${title} · ${site.name}`} description={description} index={index}>
+  <div class="page">
+    <Masthead />
+    <main class="prose">
+      <slot />
+    </main>
+    <Footer />
+  </div>
+</Base>

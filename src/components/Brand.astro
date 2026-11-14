@@ -1,0 +1,29 @@
+---
+import palette from "sotto/palette.json";
+import { site } from "../data/site.ts";
+
+const swatches = site.swatches.map((role) => ({ role, hex: palette.colors[role].hex }));
+---
+
+<div class="brand">
+  <h1 class="tagline"><span>{site.tagline[0]}</span> <br /><span>{site.tagline[1]}</span></h1>
+  <ul class="palette">
+    {
+      swatches.map(({ role, hex }, index) => (
+        <li>
+          <button class="swatch" type="button" data-role={role} aria-label={`${role} ${hex}`} aria-pressed="false" />
+          <span class:list={["callout", index > (swatches.length - 1) / 2 && "flip"]} data-role={role} aria-hidden="true">
+            <svg class="lead" viewBox="0 0 28 12" aria-hidden="true">
+              <path d="M.5.5 11.5 11.5H28" pathLength="1" />
+            </svg>
+            <span class="note">
+              <b>{role}</b>
+              <i />
+              <span class="hex">{hex}</span>
+            </span>
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</div>

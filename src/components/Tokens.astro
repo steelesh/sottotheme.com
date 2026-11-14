@@ -1,0 +1,27 @@
+---
+import type { Token } from "../lib/highlight.ts";
+
+interface Props {
+  tokens: Token[];
+  roles?: readonly string[];
+}
+
+const { tokens, roles = [] } = Astro.props;
+---
+
+{
+  tokens.map((token) =>
+    token.text.trim() ? (
+      <span
+        class={`tok t-${token.role}`}
+        data-role={roles.includes(token.role) ? token.role : undefined}
+        data-bold={token.bold ? "" : undefined}
+        data-underline={token.underline ? "" : undefined}
+      >
+        {token.text}
+      </span>
+    ) : (
+      token.text
+    ),
+  )
+}

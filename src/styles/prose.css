@@ -1,0 +1,84 @@
+@import "./base.css";
+
+.prose {
+  padding-block: 4em 5em;
+  color: var(--murmur);
+
+  & h1 {
+    color: var(--voice);
+    font-size: 1.75em;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  & h2 {
+    margin-top: 2.5em;
+    color: var(--voice);
+    font-weight: 600;
+  }
+
+  & p,
+  & ul {
+    max-width: 62ch;
+    margin-top: 1em;
+  }
+
+  & :where(h1) + p {
+    color: var(--breath);
+    font-size: 0.875em;
+  }
+
+  & li {
+    position: relative;
+    margin-top: 0.5em;
+    padding-left: 1.5em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.75em;
+      left: 0.25em;
+      width: 0.3125em;
+      height: 0.3125em;
+      border-radius: 50%;
+      background: var(--trace);
+    }
+  }
+
+  & a {
+    color: var(--aside);
+    text-decoration: underline 1px var(--trace);
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--swift);
+
+    &:hover {
+      text-decoration-color: currentcolor;
+    }
+  }
+}
+
+.page {
+  --edge: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  line-height: 1.6875;
+
+  & .masthead,
+  & .prose,
+  & .footer {
+    align-self: center;
+    width: min(42em, 100% - 2 * var(--edge));
+  }
+
+  & .masthead {
+    padding-top: 1.5em;
+  }
+
+  & .footer {
+    margin-top: auto;
+    padding-block: 1em;
+    border-top: 1px solid var(--hairline);
+  }
+}

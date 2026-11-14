@@ -1,0 +1,30 @@
+---
+import Javascript from "sotto/themes/jetbrains/icons/sotto/files/javascript.svg";
+import Markdown from "sotto/themes/jetbrains/icons/sotto/files/markdown.svg";
+import { files } from "../data/files.ts";
+import Code from "./Code.astro";
+import Doc from "./Doc.astro";
+
+const icons = { javascript: Javascript, markdown: Markdown };
+---
+
+<figure class="window">
+  <figcaption class="sr-only">Two files shown in the Sotto theme: a JavaScript file and the rendered install instructions.</figcaption>
+  <header class="bar">
+    <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+    <nav class="tabs" aria-label="Files">
+      {
+        files.map(({ id, name, lang }) => {
+          const Icon = icons[lang];
+          return (
+            <a class="tab" href={`#${id}`}>
+              <Icon aria-hidden="true" />
+              {name}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </header>
+  {files.map((file) => (file.lang === "markdown" ? <Doc file={file} /> : <Code file={file} />))}
+</figure>
