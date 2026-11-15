@@ -28,7 +28,7 @@ The copy buttons on the install tab write the command to your clipboard. Nothing
 
 ## Links that leave the site
 
-Links to GitHub, the Visual Studio Marketplace and the JetBrains Marketplace take you to those sites, which have their own privacy policies.
+Links to GitHub, the Visual Studio Marketplace, Open VSX and the JetBrains Marketplace take you to those sites, which have their own privacy policies.
 
 ## Questions
 
